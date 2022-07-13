@@ -25,7 +25,7 @@ export const handler: Handlers = {
     });
   },
 };
-export default function Greet({ data }: PageProps) {
+export default function Create({ data }: PageProps) {
   return (
     <div className={tw`h-screen grid place-items-center`}>
       <form

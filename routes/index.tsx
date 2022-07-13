@@ -48,7 +48,7 @@ export default function Home({ data }: PageProps<Data>) {
           Upload Videos
         </a>
 
-        <div className={tw`grid grid-cols-4 gap-4 py-4`}>
+        <div className={tw`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 py-4`}>
           {videos.map((video: string) => (
             <div
               key={video}
