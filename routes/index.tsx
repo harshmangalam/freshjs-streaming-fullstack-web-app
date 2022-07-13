@@ -55,11 +55,23 @@ export default function Home({ data }: PageProps<Data>) {
               className={tw`flex flex-col space-y-4 shadow rounded-md`}
             >
               <img
-                src={`/videos/${video}`}
-                className={tw`w-full h-60 aspect-video rounded-t-md`}
+                src={`https://png.pngtree.com/png-vector/20190810/ourlarge/pngtree-youtube-paly-video-player-abstract-circle-background-flat-col-png-image_1655120.jpg`}
+                className={tw`w-full aspect-square rounded-t-md`}
                 alt={video}
               />
-              <h6 className={tw`text-lg font-medium text-blue-400`}>{video}</h6>
+              <div className={tw`flex justify-between p-4 gap-2`}>
+                <h6 className={tw`text-lg font-medium text-blue-400 flex-grow`}>
+                  {video}
+                </h6>
+                <div>
+                  <a
+                    href={`/${video}`}
+                    className={tw`px-2 py-1 bg-purple-500 text-white rounded-md`}
+                  >
+                    Watch
+                  </a>
+                </div>
+              </div>
             </div>
           ))}
         </div>

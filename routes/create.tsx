@@ -18,7 +18,7 @@ export const handler: Handlers = {
       create: true,
     });
     return new Response(undefined, {
-      status:302,
+      status: 302,
       headers: {
         location: "/",
       },
@@ -35,6 +35,7 @@ export default function Greet({ data }: PageProps) {
       >
         <div className={tw`flex flex-col space-y-2`}>
           <input
+            accept="video/*"
             type="file"
             name="file"
             id="file"
