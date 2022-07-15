@@ -7,7 +7,7 @@ import {
 } from "../../utils/videos.ts";
 
 export const handler: Handlers = {
-  async GET(req, ctx) {
+  async GET(req, _ctx) {
     const url = new URL(req.url);
     const videoName = url.searchParams.get("videoName");
 
@@ -24,7 +24,9 @@ export const handler: Handlers = {
     try {
       videoSize = await getVideoSize(videoName);
     } catch (error) {
-      ctx.render({ error: error.message });
+      return new Response(JSON.stringify({ error: error.message }), {
+        status: 400,
+      });
     }
 
     // console.log("videoSize", videoSize);
@@ -46,7 +48,7 @@ export const handler: Handlers = {
     // console.log("startIndex", startIndex);
     const endIndex = Math.min(startIndex + videoBlockSize, videoSize);
 
-    console.log("endIndex",endIndex)
+    console.log("endIndex", endIndex);
 
     const video = await Deno.open(`${VIDEOS_DIR}/${videoName}`);
     if (startIndex > 0) {
